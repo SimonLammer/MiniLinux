@@ -9,14 +9,15 @@ set vboxmanage="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 set defaultmode=help
 
 :: Main Program
+setlocal EnableDelayedExpansion
+set "mode="
 set verbose=false
 set nopause=false
 set first=true
+set programname=%0
 for %%a in (%*) do (
-	if "%first%" == "true" (
-		echo DEBUG %%a
+	if "!first!" == "true" (
 		set first=false
-		echo DEBUG fa: %first%
 		set mode=%%a
 	) else (
 		set option=%%a
@@ -24,11 +25,18 @@ for %%a in (%*) do (
 		call :set_option
 	)
 )
+if "%mode%" == "" (
+	set mode=%defaultmode%
+)
 call :handle_short_mode_versions
-echo Errorlvl: %ERRORLEVEL%
+call :run_mode
 exit /b 0
 
 :: Functions
+:full
+
+exit /b 0
+
 :handle_short_mode_versions
 	if "%mode%" == "c" (
 		set mode=connect
@@ -54,9 +62,39 @@ exit /b 0
 	) else if "%mode%" == "sh" (
 		set mode=shutdown
 		if "%verbose%" == "true" (echo Mode sh extended to shutdown)
+	) else if "%mode%" == "st" (
+		set mode=state
+		if "%verbose%" == "true" (echo Mode st extended to state)
 	) else if "%mode%" == "s" (
 		set mode=start
 		if "%verbose%" == "true" (echo Mode s extended to start)
+	)
+exit /b 0
+
+:run_mode
+	if "%mode%" == "connect" (
+		call :connect
+	) else if "%mode%" == "full" (
+		call :full
+	) else if "%mode%" == "help" (
+		call :help
+	) else if "%mode%" == "pause" (
+		call :pause
+	) else if "%mode%" == "poweroff" (
+		call :poweroff
+	) else if "%mode%" == "reset" (
+		call :reset
+	) else if "%mode%" == "resume" (
+		call :resume
+	) else if "%mode%" == "shutdown" (
+		call :shutdown
+	) else if "%mode%" == "state" (
+		call :state
+	) else if "%mode%" == "start" (
+		call :start
+	) else (
+		echo Mode '%mode%' invalid!
+		call :help
 	)
 exit /b 0
 
@@ -66,7 +104,7 @@ exit /b 0
 		if "%verbose%" == "true" (echo Option n extended to nopause)
 	) else if "%option%" == "v" (
 		set option=verbose
-		if "%verbose%" == "true" (echo Option v extended to verbose)
+		echo Option v extended to verbose
 	)
 exit /b 0
 
@@ -76,18 +114,18 @@ exit /b 0
 		if "%verbose%" == "true" (echo Option %option% set)
 	) else if "%option%" == "verbose" (
 		set verbose=true
-		if "%verbose%" == "true" (echo Option %option% set)
+		echo Option %option% set
 	) else (
 		echo Option '%option%' invalid
 	)
 exit /b 0
 
-:print_help
-	echo Usage: %0 <Mode> [Options]
-	echo   %0 <- this will use the defaults
-	echo   %0 (connect|help|pause|poweroff|reset|resume|shutdown|start) [verbose]
-	echo   %0 full [nopause]
-	echo
+:help
+	echo Usage: %programname% ^<Mode^> [Options]
+	echo   %programname% ^<- this will use the defaults
+	echo   %programname% (connect^|help^|pause^|poweroff^|reset^|resume^|shutdown^|start) [verbose]
+	echo   %programname% full [nopause]
+	echo.
 	echo Modes (short version, long version, description):
 	echo   c  connect  - Connect to the vm via ssh.
 	echo   f  full     - Start / resume the vm, connect and pause the vm when this script finishes.
@@ -97,12 +135,17 @@ exit /b 0
 	echo   re reset    - Reset the vm (force shutdown and start).
 	echo   r  resume   - Resume the vm from paused state.
 	echo   sh shutdown - Gracefully shutdown the vm.
-	::TODO status
+	echo   st state    - Prints current vm state
 	echo   s  start    - Start the vm.
-	echo
+	echo.
 	echo Options:
 	echo   n  nopause  - Do not pause the vm when the script finishes.
 	echo   v  verbose  - Print every action.
+exit /b 0
+
+:state
+	call :set_vmstate
+	echo Current vm state: %vmstate%
 exit /b 0
 
 :: Functions vm-related -->
@@ -149,7 +192,10 @@ exit /b 0
 exit /b 0
 
 :connect
+	echo Connecting to the vm via ssh
+	@echo on
 	ssh %vmuser%@%vmip% -p %vmsshport%
+	@echo off
 exit /b 0
 
 :set_vmstate
