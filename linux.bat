@@ -7,12 +7,14 @@ set vmip=192.168.56.1
 set vmsshport=4022
 set vboxmanage="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 set defaultmode=help
+set waittime=3
 
 :: Main Program
 setlocal EnableDelayedExpansion
 set "mode="
+set "vmstate="
 set verbose=false
-set nopause=false
+set pause=false
 set first=true
 set programname=%0
 for %%a in (%*) do (
@@ -34,7 +36,23 @@ exit /b 0
 
 :: Functions
 :full
-
+	call :set_vmstate
+	if "%verbose%" == "true" (echo Current vm state: %vmstate%)
+	if %vmstate% == "poweroff" (
+		call :start
+	) else if %vmstate% == "paused" (
+		call :resume
+	)
+	ping -n %waittime% localhost >NUL
+	call :connect
+	if "%pause%" == "true" (
+		ping -n %waittime% localhost >NUL
+		call :set_vmstate
+		if "%verbose%" == "true" (echo Current vm state: %vmstate%)
+		if %vmstate% == "running" (
+				call :pause
+		)
+	)
 exit /b 0
 
 :handle_short_mode_versions
@@ -99,9 +117,9 @@ exit /b 0
 exit /b 0
 
 :handle_short_option_versions
-	if "%option%" == "n" (
-		set option=nopause
-		if "%verbose%" == "true" (echo Option n extended to nopause)
+	if "%option%" == "p" (
+		set option=pause
+		if "%verbose%" == "true" (echo Option p extended to pause)
 	) else if "%option%" == "v" (
 		set option=verbose
 		echo Option v extended to verbose
@@ -109,8 +127,8 @@ exit /b 0
 exit /b 0
 
 :set_option
-	if "%option%" == "nopause" (
-		set nopause=true
+	if "%option%" == "pause" (
+		set pause=true
 		if "%verbose%" == "true" (echo Option %option% set)
 	) else if "%option%" == "verbose" (
 		set verbose=true
@@ -124,7 +142,7 @@ exit /b 0
 	echo Usage: %programname% ^<Mode^> [Options]
 	echo   %programname% ^<- this will use the defaults
 	echo   %programname% (connect^|help^|pause^|poweroff^|reset^|resume^|shutdown^|start) [verbose]
-	echo   %programname% full [nopause]
+	echo   %programname% full [verbose] [pause]
 	echo.
 	echo Modes (short version, long version, description):
 	echo   c  connect  - Connect to the vm via ssh.
@@ -139,7 +157,7 @@ exit /b 0
 	echo   s  start    - Start the vm.
 	echo.
 	echo Options:
-	echo   n  nopause  - Do not pause the vm when the script finishes.
+	echo   p  pause    - Pause the vm when it is running as the script finishes.
 	echo   v  verbose  - Print every action.
 exit /b 0
 
