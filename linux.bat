@@ -43,7 +43,6 @@ exit /b 0
 	) else if %vmstate% == "paused" (
 		call :resume
 	)
-	ping -n %waittime% localhost >NUL
 	call :connect
 	if "%pause%" == "true" (
 		ping -n %waittime% localhost >NUL
@@ -214,6 +213,11 @@ exit /b 0
 	@echo on
 	ssh %vmuser%@%vmip% -p %vmsshport%
 	@echo off
+	if NOT "%ERRORLEVEL%" == "0" (
+		echo Could not connect, trying again
+		ping -n %waittime% localhost >NUL
+		call :connect
+	)
 exit /b 0
 
 :set_vmstate
