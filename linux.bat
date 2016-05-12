@@ -6,8 +6,10 @@ set vmuser=user
 set vmip=192.168.56.1
 set vmsshport=4022
 set vboxmanage="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
-set defaultmode=help
-set waittime=3
+set waittime=2
+set defaultmode=full
+set defaultpause=true
+set defaultverbose=false
 
 :: Main Program
 setlocal EnableDelayedExpansion
@@ -29,7 +31,12 @@ for %%a in (%*) do (
 )
 if "%mode%" == "" (
 	set mode=%defaultmode%
+	set pause=%defaultpause%
+	set verbose=%defaultverbose%
+	if "%verbose%" == "true" (echo The mode was not set. Default settings will be used.)
 )
+echo DEBUG pause: %pause%
+echo DEBUG verbosity: %verbose%
 call :handle_short_mode_versions
 call :run_mode
 exit /b 0
@@ -48,8 +55,10 @@ exit /b 0
 		ping -n %waittime% localhost >NUL
 		call :set_vmstate
 		if "%verbose%" == "true" (echo Current vm state: %vmstate%)
-		if %vmstate% == "running" (
-				call :pause
+		if !vmstate! == "running" (
+			call :pause
+		) else (
+			echo The vm will not be paused because it is in !vmstate! state
 		)
 	)
 exit /b 0
@@ -214,7 +223,7 @@ exit /b 0
 	ssh %vmuser%@%vmip% -p %vmsshport%
 	@echo off
 	if NOT "%ERRORLEVEL%" == "0" (
-		echo Could not connect, trying again
+		echo Could not connect ^(Error code: %ERRORLEVEL%^), trying again
 		ping -n %waittime% localhost >NUL
 		call :connect
 	)
