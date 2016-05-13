@@ -14,5 +14,5 @@ It comes in two flavours of which i preffer the full version that comes with bui
 ### ssh
 The full version of cmder comes with ssh, therefore have not felt the need to install it seperately.
 
-## Create virtual machine
+## Create the virtual machine
 To use as little system resources as possible, I chose to install the [minimal version of Ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) on the VM.
