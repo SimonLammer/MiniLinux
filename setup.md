@@ -16,3 +16,9 @@ The full version of cmder comes with ssh, therefore have not felt the need to in
 
 ## Create the virtual machine
 To use as little system resources as possible, I chose to use the [minimal version of Ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) as operating system on the VM.
+
+## Setup a ssh connection
+
+## Use a [batch script](linux.bat) to control the VM easily
+[Download the script](linux.bat) and add the folder it resides in to your windows PATH variable, in order to access it with "linux" anywhere.
+Instead of only downloading the script itself, you could also clone the entire MiniLinux repository to get eventual updates.
