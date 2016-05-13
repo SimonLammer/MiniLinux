@@ -6,3 +6,6 @@ MiniLinux is the combined usage of several powerful tools:
 * [VirtualBox](https://www.virtualbox.org/)
 * [cmder](http://cmder.net/)
 * [Ubuntu minimal](https://help.ubuntu.com/community/Installation/MinimalCD) (Other linux distros probably work just as fine)
+
+## How do I set it up
+Check out our [setup guide](setup.md)
