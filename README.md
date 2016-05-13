@@ -8,4 +8,4 @@ MiniLinux is the combined usage of several powerful tools:
 * [Ubuntu minimal](https://help.ubuntu.com/community/Installation/MinimalCD) (Other linux distros probably work just as fine)
 
 ## How do I set it up
-Check out our [setup guide](setup.md)
+Check out the [setup guide](setup.md)
