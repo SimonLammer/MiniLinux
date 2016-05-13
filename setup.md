@@ -39,13 +39,32 @@ To use as little system resources as possible, I chose to use the [minimal versi
 2. Start VM
 3. Mount Shared Folder
 	1. Create folder where the shared folder should be mounted: mkdir /chose
-	2. Mount shared folder: sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c
-	3. Check if mount worked: cd /c; mkdir MiniLinuxTest; ls -la | grep MiniLinuxTest; rmdir MiniLinuxTest
-		1. Enter the folder: cd /c
-		2. Create a folder: mkdir MiniLinuxTest
-		3. Check if the folder was created: ls -la
-		4. Remove the folder: rmdir MiniLinuxTest
-	4. Automatically mount the folder at startup: add "sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c" to "/etc/rc.local"
+	2. Mount shared folder: 
+	```
+	sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c
+	```
+	3. Check whether mount worked
+		1. Enter the folder: 
+		```
+		cd /c
+		```
+		2. Create a folder: 
+		```
+		mkdir MiniLinuxTest
+		```
+		3. Check if the folder was created: 
+		```
+		ls -la
+		```
+		4. Remove the folder: 
+		```
+		rmdir MiniLinuxTest
+		```
+	4. Automatically mount the folder at startup: add 
+		```
+		sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c
+		```
+		to "/etc/rc.local"
 	5. Restart the VM
 	6. Repeat 3.3
 
