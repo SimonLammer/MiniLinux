@@ -109,8 +109,16 @@ To use as little system resources as possible, I chose to use the [minimal versi
 	```
 	ssh-copy-id -i id_rsa_minilinux.pub localhost
 	```
+	
+3.  Disable GSSAPIAuthentication
 
-3. Try connecting via ssh
+	Authenticating with the public key took up to 15 seconds for me. After I disabled GSSAPIAuthentication with the following command, connecting worked in under a second!
+
+	```
+	echo "GSSAPIAuthentication no" > config
+	```
+
+4. Try connecting via ssh
 
 	On Windows:
 	
