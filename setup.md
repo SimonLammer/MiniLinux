@@ -82,6 +82,41 @@ To use as little system resources as possible, I chose to use the [minimal versi
 	5. Restart the VM
 	6. Repeat 3.3
 
+### Connect to the VM without password
+1. Create a ssh-key
+
+	I do not want to use my main ssh-key for this purpose, as it is password-protected (which you should do too).
+	Therefore I will create a second ssh-key without password protection that will only be used to connect to the VM.
+	Remember to specify a location to save the key.
+	Otherwise it will overwrite your existing one!
+	Then leave the passphrase empty.
+	
+	```
+	ssh-keygen
+	```
+	> Enter file in which to save the key (/c/Users/MyUser/.ssh/id_rsa): C:\Users\MyUser\.ssh\id_rsa_minilinux
+	> Enter passphrase (empty for no passphrase):
+	
+	
+1. Enter the ".ssh" directory of your windows machine
+
+	```
+	cd /c/Users/MyUser/.ssh
+	```
+2. Copy the public key to the VM
+
+	```
+	ssh-copy-id -i id_rsa_minilinux.pub localhost
+	```
+
+3. Try connecting via ssh
+
+	On Windows:
+	
+	```
+	ssh user@192.168.56.1 -p 4022 -i C:\Users\MyUser\.ssh\id_rsa_minilinux
+	```
+
 ## Use a [batch script](linux.bat) to control the VM easily
 [Download the script](linux.bat) and add the folder it resides in to your windows PATH variable, in order to access it with "linux" anywhere.
 Instead of only downloading the script itself, you could also clone the entire MiniLinux repository to get eventual updates.
