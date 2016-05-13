@@ -118,6 +118,6 @@ To use as little system resources as possible, I chose to use the [minimal versi
 	ssh user@192.168.56.1 -p 4022 -i C:\Users\MyUser\.ssh\id_rsa_minilinux
 	```
 
-## Use a [batch script](linux.bat) to control the VM easily
-[Download the script](linux.bat) and add the folder it resides in to your windows PATH variable, in order to access it with "linux" anywhere.
-Instead of only downloading the script itself, you could also clone the entire MiniLinux repository to get eventual updates.
+## Use a batch script to control the VM easily
+[Download the script](linux.bat) and [the config file](config.bat) and add the folder they reside in to your windows PATH variable, in order to access it with "linux" anywhere.
+Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.
