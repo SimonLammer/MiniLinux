@@ -95,6 +95,7 @@ To use as little system resources as possible, I chose to use the [minimal versi
 	ssh-keygen
 	```
 	> Enter file in which to save the key (/c/Users/MyUser/.ssh/id_rsa): C:\Users\MyUser\.ssh\id_rsa_minilinux
+	
 	> Enter passphrase (empty for no passphrase):
 	
 	
