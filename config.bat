@@ -1,4 +1,5 @@
 :: Please set these to the correct values
+:: If you are using the git repo and want git to ignore the changes you made to this file run "git update-index --assume-unchanged config.bat"
 set vmname=MiniLinux
 set vmuser=user
 set vmip=192.168.56.1
