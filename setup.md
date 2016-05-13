@@ -39,6 +39,7 @@ To use as little system resources as possible, I chose to use the [minimal versi
 2. Start VM
 3. Mount Shared Folder
 	1. Create folder where the shared folder should be mounted
+	
 		```
 		mkdir /c
 		```
