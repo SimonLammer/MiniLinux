@@ -35,8 +35,6 @@ if "%mode%" == "" (
 	set verbose=%defaultverbose%
 	if "%verbose%" == "true" (echo The mode was not set. Default settings will be used.)
 )
-echo DEBUG pause: %pause%
-echo DEBUG verbosity: %verbose%
 call :handle_short_mode_versions
 call :run_mode
 exit /b 0
