@@ -24,7 +24,11 @@ To use as little system resources as possible, I chose to use the [minimal versi
 
 ### Install VirtualBox Guest Additions
 1. Start VM
-2. sudo apt-get install virtualbox-guest-utils
+2. Install Guest Additions
+	
+	```
+	sudo apt-get install virtualbox-guest-utils
+	```
 
 ### Access hard drive from within the VM
 1. Create Shared Folder
