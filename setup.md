@@ -42,28 +42,34 @@ To use as little system resources as possible, I chose to use the [minimal versi
 		```
 		mkdir /c
 		```
-	2. Mount shared folder: 
+	2. Mount shared folder
+	
 		```
 		sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c
 		```
-		3. Check whether mount worked
-		1. Enter the folder: 
+	3. Check whether mount worked
+		1. Enter the folder
+		
 			```
 			cd /c
 			```
-		2. Create a folder: 
+		2. Create a folder
+		
 			```
 			mkdir MiniLinuxTest
 			```
-		3. Check if the folder was created: 
+		3. Check if the folder was created
+		
 			```
 			ls -la
 			```
 		4. Remove the folder: 
+		
 			```
 			rmdir MiniLinuxTest
 			```
 	4. Automatically mount the folder at startup
+	
 		add the following command to "/etc/rc.local"
 		```
 		sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c
