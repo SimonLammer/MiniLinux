@@ -5,6 +5,7 @@ set vmname=MiniLinux
 set vmuser=user
 set vmip=192.168.56.1
 set vmsshport=4022
+set vmsshkey=C:\Users\Simon\.ssh\id_rsa_minilinux
 set vboxmanage="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 set waittime=2
 set defaultmode=full
@@ -218,7 +219,7 @@ exit /b 0
 :connect
 	echo Connecting to the vm via ssh
 	@echo on
-	ssh %vmuser%@%vmip% -p %vmsshport%
+	ssh %vmuser%@%vmip% -p %vmsshport% -i %vmsshkey%
 	@echo off
 	if NOT "%ERRORLEVEL%" == "0" (
 		echo Could not connect ^(Error code: %ERRORLEVEL%^), trying again
