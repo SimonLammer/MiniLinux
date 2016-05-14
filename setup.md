@@ -21,6 +21,37 @@ The VM is the core of MiniLinux as it is what really executes the linux command 
 To use as little system resources as possible, I chose to use the [minimal version of Ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) as operating system on the VM.
 
 ### Setup a ssh connection
+The setup of the ssh connection can be broken down to two parts:
+
+1. Install openssh
+
+	```
+	sudo apt-get install openssh-server openssh-client
+	```
+2. Establish a connection between the windows host and the linux guest
+	
+	(screenshots)
+	
+	In windows (via cmder)
+	```
+	ssh user@192.168.56.1 -p 4022
+	```
+	
+	> The authenticity of host '[192.168.56.1]:4022 ([192.168.56.1]:4022)' can't be established.
+		
+	> ECDSA key fingerprint is SHA256:VdtF0c7Ptik3rGZMXAqjH+OFocq9Kj2NIdYXh7QEYvE.
+	
+	> Are you sure you want to continue connecting (yes/no)? yes
+	
+	> Warning: Permanently added '[192.168.56.1]:4022' (ECDSA) to the list of known hosts. user@192.168.56.1's password:
+		
+	> Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.13.0-86-generic x86_64)
+	
+	> * Documentation:  https://help.ubuntu.com/
+	
+	> Last login: Sat May 14 14:31:09 2016
+	
+	> user@minilinux:~$
 
 ### Install VirtualBox Guest Additions
 1. Start VM
