@@ -20,6 +20,47 @@ The VM is the core of MiniLinux as it is what really executes the linux command 
 ### Install the operating system
 To use as little system resources as possible, I chose to use the [minimal version of Ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) as operating system on the VM.
 
+Screenshots of the Ubuntu 14.04 minimal installation:
+
+![01](screenshots/InstallOS/01.jpg)  
+![02](screenshots/InstallOS/02.jpg)  
+![03](screenshots/InstallOS/03.jpg)  
+![04](screenshots/InstallOS/04.jpg)  
+![05](screenshots/InstallOS/05.jpg)  
+![06](screenshots/InstallOS/06.jpg)  
+![07](screenshots/InstallOS/07.jpg)  
+![08](screenshots/InstallOS/08.jpg)  
+![09](screenshots/InstallOS/09.jpg)  
+![10](screenshots/InstallOS/10.jpg)
+![11](screenshots/InstallOS/11.jpg)
+![12](screenshots/InstallOS/12.jpg)
+![13](screenshots/InstallOS/13.jpg)
+![14](screenshots/InstallOS/14.jpg)
+![15](screenshots/InstallOS/15.jpg)
+![16](screenshots/InstallOS/16.jpg)
+![17](screenshots/InstallOS/17.jpg)
+![18](screenshots/InstallOS/18.jpg)
+![19](screenshots/InstallOS/19.jpg)
+![20](screenshots/InstallOS/20.jpg)
+![21](screenshots/InstallOS/21.jpg)
+![22](screenshots/InstallOS/22.jpg)
+![23](screenshots/InstallOS/23.jpg)
+![24](screenshots/InstallOS/24.jpg)
+![25](screenshots/InstallOS/25.jpg)
+![26](screenshots/InstallOS/26.jpg)
+![27](screenshots/InstallOS/27.jpg)
+![28](screenshots/InstallOS/28.jpg)
+![29](screenshots/InstallOS/29.jpg)
+![30](screenshots/InstallOS/30.jpg)
+![31](screenshots/InstallOS/31.jpg)
+![32](screenshots/InstallOS/32.jpg)
+![33](screenshots/InstallOS/33.jpg)
+![34](screenshots/InstallOS/34.jpg)
+![35](screenshots/InstallOS/35.jpg)
+![36](screenshots/InstallOS/36.jpg)
+![37](screenshots/InstallOS/37.jpg)
+![38](screenshots/InstallOS/38.jpg)
+
 ### Setup a ssh connection
 The setup of the ssh connection can be broken down to two parts:
 
