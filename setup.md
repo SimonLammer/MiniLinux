@@ -28,11 +28,13 @@ The setup of the ssh connection can be broken down to two parts:
 	```
 	sudo apt-get install openssh-server openssh-client
 	```
-2. Establish a connection between the windows host and the linux guest
+2.  Establish a virtual connection between the windows host and the linux guest
 	
 	(screenshots)
+
+3. Connect via ssh
 	
-	In windows (via cmder)
+	Use the following command (in windows & cmder) to connect:
 	```
 	ssh user@192.168.56.1 -p 4022
 	```
