@@ -20,6 +20,14 @@ The VM is the core of MiniLinux as it is what really executes the linux command 
 ### Install the operating system
 To use as little system resources as possible, I chose to use the [minimal version of Ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) as operating system on the VM.
 
+Short summary:
+            Variable | Value
+--------------------:|:---------
+            Hostname | minilinux
+  Full name for User | MiniLinux
+Username for account | user
+Password for account | password
+
 Screenshots of the Ubuntu 14.04 minimal installation:
 
 ![01](screenshots/InstallOS/01.jpg)  
