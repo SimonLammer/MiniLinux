@@ -171,9 +171,9 @@ The setup of the ssh connection can be broken down to two parts:
 			```
 	4. Automatically mount the folder at startup
 	
-		add the following command to "/etc/rc.local"
+		add ```sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c``` to "/etc/rc.local"
 		```
-		sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c
+		echo "sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c" >> /etc/rc.local
 		```
 	5. Restart the VM
 	6. Repeat 3.3
