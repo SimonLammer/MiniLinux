@@ -30,7 +30,20 @@ The setup of the ssh connection can be broken down to two parts:
 	```
 2.  Establish a virtual connection between the windows host and the linux guest
 	
-	(screenshots)
+	(01)[screenshots/Network/01.jpg]
+	(02)[screenshots/Network/02.jpg]
+	(03)[screenshots/Network/03.jpg]
+	(04)[screenshots/Network/04.jpg]
+	(05)[screenshots/Network/05.jpg]
+	(06)[screenshots/Network/06.jpg]
+	(07)[screenshots/Network/07.jpg]
+	(08)[screenshots/Network/08.jpg]
+	(09)[screenshots/Network/09.jpg]
+	(10)[screenshots/Network/10.jpg]
+	(11)[screenshots/Network/11.jpg]
+	(12)[screenshots/Network/12.jpg]
+	(13)[screenshots/Network/13.jpg]
+	(14)[screenshots/Network/14.jpg]
 
 3. Connect via ssh
 	
