@@ -225,3 +225,4 @@ The setup of the ssh connection can be broken down to three parts:
 ## Use a batch script to control the VM easily
 [Download the script](linux.bat) and [the config file](config.bat) and add the folder they reside in to your windows PATH variable, in order to access it with ```linux``` anywhere.
 Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.
+Edit the config.bat before you run linux.bat or it will not work!
