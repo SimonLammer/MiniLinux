@@ -12,7 +12,7 @@ It provides a neat looking console that is in many ways (shortcuts, ...) superio
 It comes in two flavours of which i preffer the full version that comes with built in tools like git, ssh and many more.
 
 ### ssh
-The full version of cmder comes with ssh, therefore have not felt the need to install it seperately.
+The full version of cmder comes with ssh, therefore I have not felt the need to install it seperately.
 
 ## Create the virtual machine
 The VM is the core of MiniLinux as it is what really executes the linux command line applications.
