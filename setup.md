@@ -71,7 +71,7 @@ Screenshots of the Ubuntu 14.04 minimal installation:
 ![38](screenshots/InstallOS/38.jpg)
 
 ### Setup a ssh connection
-The setup of the ssh connection can be broken down to two parts:
+The setup of the ssh connection can be broken down to three parts:
 
 1. Install openssh
 
