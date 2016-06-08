@@ -136,14 +136,14 @@ The setup of the ssh connection can be broken down to two parts:
 
 ### Access hard drive from within the VM
 1. Create Shared Folder
-	1. Open VirtualBox Manager
-	2. rightclick MiniLinux > Settings
-	3. Shared Folders tab
-	4. Add new shared folder
-	5. Add share > Folder Path: "C:\"
-	6. Add share > Folder Name: "C_Drive"
-	7. Add share > Ok
-	8. MiniLinux Settings > Ok
+
+	![01](screenshots/Network/01.jpg)
+	![02](screenshots/Network/02.jpg)
+	![03](screenshots/Network/03.jpg)
+	![04](screenshots/Network/04.jpg)
+	![05](screenshots/Network/05.jpg)
+	![06](screenshots/Network/06.jpg)
+	
 2. Start VM
 3. Mount Shared Folder
 	1. Create folder where the shared folder should be mounted
