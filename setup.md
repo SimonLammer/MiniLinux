@@ -24,6 +24,7 @@ Short summary:
 
 |             Variable | Value     |
 | --------------------:| --------- |
+|              VM Name | MiniLinux |
 |             Hostname | minilinux |
 |   Full name for User | MiniLinux |
 | Username for account | user      |
