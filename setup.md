@@ -71,6 +71,13 @@ Screenshots of the Ubuntu 14.04 minimal installation:
 ![37](screenshots/InstallOS/37.jpg)
 ![38](screenshots/InstallOS/38.jpg)
 
+### Make sure the OS is up to date
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
 ### Setup a ssh connection
 The setup of the ssh connection can be broken down to two parts:
 
@@ -142,7 +149,7 @@ The setup of the ssh connection can be broken down to two parts:
 	1. Create folder where the shared folder should be mounted
 	
 		```
-		mkdir /c
+		sudo mkdir /c
 		```
 	2. Mount shared folder
 	
@@ -174,6 +181,7 @@ The setup of the ssh connection can be broken down to two parts:
 	
 		add ```sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c``` to "/etc/rc.local"
 		```
+		sudo -i
 		echo "sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c" >> /etc/rc.local
 		```
 	5. Restart the VM
@@ -206,6 +214,21 @@ The setup of the ssh connection can be broken down to two parts:
 	```
 	ssh-copy-id -i id_rsa_minilinux.pub localhost
 	```
+	> The authenticity of host 'localhost (::1)' can't be established.
+	
+	> ECDSA key fingerprint is d2:0d:83:f4:21:95:3c:63:6f:bc:f1:5f:0e:96:c1:e8.
+	
+	> Are you sure you want to continue connecting (yes/no)? yes
+	
+	> /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+	
+	> /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+	
+	> user@localhost's password:
+
+	> Number of key(s) added: 1
+
+	> Now try logging into the machine, with:   "ssh 'localhost'" and check to make sure that only the key(s) you wanted were added.
 	
 3.  Disable GSSAPIAuthentication
 
