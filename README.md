@@ -1,5 +1,5 @@
 # MiniLinux
-Minimal Linux OS to use Linux console applications on a Windows system
+Use Linux console applications on a Windows computer
 
 ## How it works
 MiniLinux is the combined usage of several powerful tools:
