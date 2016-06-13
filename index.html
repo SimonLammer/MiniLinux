@@ -200,7 +200,7 @@
         </div>
     </section>
 
-    <!-- References Section ->
+    <!-- References Section
     <section id="references" class="bg-light-gray">
 	
         <div class="container">
@@ -298,8 +298,7 @@
             </div>
         </div>
     </section>
-	<!-- -->
-	
+	-->
 	<!-- Setup Guide Section -->
 	<section id="setup-guide">
         <div class="container">
@@ -344,6 +343,10 @@
 					<th align="center" colspan="2" style="text-align:center">Short summary:</th>
 					</tr>
 					</thead><tbody>
+					<tr>
+					<td align="right" width="50%">VM Name</td>
+					<td>MiniLinux</td>
+					</tr>
 					<tr>
 					<td align="right" width="50%">Hostname</td>
 					<td>minilinux</td>
@@ -404,6 +407,9 @@
 						<img data-src="screenshots/InstallOS/37.jpg" src="" alt="The VM should now boot to linux" />
 						<img data-src="screenshots/InstallOS/38.jpg" src="" alt="Try to login with your user credentials" />
 					</div>
+
+					<h3>Make sure the OS is up to date</h3>
+					<p><pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></pre></p>
 
 					<h3>Setup a ssh connection</h3>
 
@@ -472,16 +478,16 @@
 					<ol>
 					<li>Create Shared Folder
 
-					<ol>
-					<li>Open VirtualBox Manager</li>
-					<li>rightclick MiniLinux &gt; Settings</li>
-					<li>Shared Folders tab</li>
-					<li>Add new shared folder</li>
-					<li>Add share &gt; Folder Path: "C:\"</li>
-					<li>Add share &gt; Folder Name: "C_Drive"</li>
-					<li>Add share &gt; Ok</li>
-					<li>MiniLinux Settings &gt; Ok</li>
-					</ol></li>
+					<div id="slider3">
+						<img src="screenshots/ShareFolder/01.jpg" alt="Open Oracle VM VirtualBox Manager" />
+						<img data-src="screenshots/ShareFolder/02.jpg" alt="Rightclick the VM and choose 'Settings'" />
+						<img data-src="screenshots/ShareFolder/03.jpg" alt="Switch to the 'Shared Folders' tab" />
+						<img data-src="screenshots/ShareFolder/04.jpg" alt="Click on the icon with the + symbol (top right corner) to add a new shared folder" />
+						<img data-src="screenshots/ShareFolder/05.jpg" alt="Insert values and click 'OK'" />
+						<img data-src="screenshots/ShareFolder/06.jpg" alt="Click 'OK' to close the dialog" />
+					</div>
+
+					</li>
 					<li>Start VM</li>
 					<li><p>Mount Shared Folder</p>
 
@@ -518,7 +524,6 @@
 
 					<p>add <code>sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c</code> to "/etc/rc.local"</p>
 
-					<pre><code>echo "sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c" &gt;&gt; /etc/rc.local</code></pre>
 					</li>
 					<li>Restart the VM</li>
 					<li>Repeat 3.3</li>
@@ -551,6 +556,9 @@
 					<li><p>Copy the public key to the VM</p>
 
 					<pre><code>ssh-copy-id -i id_rsa_minilinux.pub localhost</code></pre>
+
+<blockquote> <p>The authenticity of host 'localhost (::1)' can't be established.</p>  <p>ECDSA key fingerprint is d2:0d:83:f4:21:95:3c:63:6f:bc:f1:5f:0e:96:c1:e8.</p>  <p>Are you sure you want to continue connecting (yes/no)? yes</p>  <p>/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</p>  <p>/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</p>  <p>user@localhost's password:</p>  <p>Number of key(s) added: 1</p>  <p>Now try logging into the machine, with:   "ssh 'localhost'" and check to make sure that only the key(s) you wanted were added.</p> </blockquote>
+
 					</li>
 					<li><p>Disable GSSAPIAuthentication</p>
 
@@ -566,12 +574,20 @@
 					</li>
 					</ol>
 
+					<h2>Use <code>sudo</code> without password prompt</h2>
+
+<p>Do note that may not want to do this, as you are likely less hesitant to write <code>sudo</code> in front of a command before revalidating that you typed the command correctly, if you do not have to enter a password.
+Nevertheless, I consider it a good balance between having to type a password every time i want do use <code>sudo</code> and using the super user per default (<code>sudo -i</code>)
+</p><p>
+Add <code>user ALL=(ALL) NOPASSWD: ALL</code> to the file opened by <code>sudo visudo</code>.
+</p>
+<pre><code>sudo visudo</code></pre>
+
 					<h2>Use a batch script to control the VM easily</h2>
 
-					<p><a href="linux.bat">Download the script</a> and <a href="config.bat">the config file</a> and add the folder they reside in to your windows PATH variable, in order to access it with <code>linux</code> anywhere.
-					Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.<br/>
-					Edit the config.bat before you run linux.bat or it will not work!</p>
-					</article>
+					<p><a href="linux.bat">Download the script</a> and <a href="minilinuxconfig.bat">the config file</a> and add the folder they reside in to your windows PATH variable, in order to access it with <code>linux</code> anywhere.
+					Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.</p>
+					Edit the minilinuxconfig.bat before you run linux.bat or it will not work!</p>
 				</div>
             </div>
         </div>
@@ -700,6 +716,9 @@
 		sliderSettings.selector = '#slider2';
 		var slider2 = new IdealImageSlider.Slider(sliderSettings);
 		slider2.addCaptions();
+		sliderSettings.selector = '#slider3';
+		var slider3 = new IdealImageSlider.Slider(sliderSettings);
+		slider3.addCaptions();
 	</script>
 
 </body>
