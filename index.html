@@ -408,6 +408,9 @@
 						<img data-src="screenshots/InstallOS/38.jpg" src="" alt="Try to login with your user credentials" />
 					</div>
 
+					<h3>Make sure the OS is up to date</h3>
+					<p><pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></pre></p>
+
 					<h3>Setup a ssh connection</h3>
 
 					<p>The setup of the ssh connection can be broken down to three parts:</p>
@@ -553,6 +556,9 @@
 					<li><p>Copy the public key to the VM</p>
 
 					<pre><code>ssh-copy-id -i id_rsa_minilinux.pub localhost</code></pre>
+
+<blockquote> <p>The authenticity of host 'localhost (::1)' can't be established.</p>  <p>ECDSA key fingerprint is d2:0d:83:f4:21:95:3c:63:6f:bc:f1:5f:0e:96:c1:e8.</p>  <p>Are you sure you want to continue connecting (yes/no)? yes</p>  <p>/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</p>  <p>/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</p>  <p>user@localhost's password:</p>  <p>Number of key(s) added: 1</p>  <p>Now try logging into the machine, with:   "ssh 'localhost'" and check to make sure that only the key(s) you wanted were added.</p> </blockquote>
+
 					</li>
 					<li><p>Disable GSSAPIAuthentication</p>
 
