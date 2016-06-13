@@ -12,7 +12,7 @@ It provides a neat looking console that is in many ways (shortcuts, ...) superio
 It comes in two flavours of which i preffer the full version that comes with built in tools like git, ssh and many more.
 
 ### ssh
-The full version of cmder comes with ssh, therefore have not felt the need to install it seperately.
+The full version of cmder comes with ssh, therefore I have not felt the need to install it seperately.
 
 ## Create the virtual machine
 The VM is the core of MiniLinux as it is what really executes the linux command line applications.
@@ -79,7 +79,7 @@ sudo apt-get upgrade
 ```
 
 ### Setup a ssh connection
-The setup of the ssh connection can be broken down to two parts:
+The setup of the ssh connection can be broken down to three parts:
 
 1. Install openssh
 
@@ -251,3 +251,4 @@ Add ```user ALL=(ALL) NOPASSWD: ALL``` to the file opened by ```sudo visudo```.
 ## Use a batch script to control the VM easily
 [Download the script](linux.bat) and [the config file](config.bat) and add the folder they reside in to your windows PATH variable, in order to access it with ```linux``` anywhere.
 Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.
+Edit the config.bat before you run linux.bat or it will not work!
