@@ -242,6 +242,12 @@ The setup of the ssh connection can be broken down to two parts:
 	ssh user@192.168.56.1 -p 4022 -i C:\Users\MyUser\.ssh\id_rsa_minilinux
 	```
 
+### Use ```sudo``` without password prompt
+Do note that may not want to do this, as you are likely less hesitant to write ```sudo``` in front of a command before revalidating that you typed the command correctly, if you do not have to enter a password.
+Nevertheless, I consider it a good balance between having to type a password every time i want do use ```sudo``` and using the super user per default (```sudo -i```)
+
+Add ```user ALL=(ALL) NOPASSWD: ALL``` to the file opened by ```sudo visudo```.
+
 ## Use a batch script to control the VM easily
 [Download the script](linux.bat) and [the config file](config.bat) and add the folder they reside in to your windows PATH variable, in order to access it with ```linux``` anywhere.
 Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.
