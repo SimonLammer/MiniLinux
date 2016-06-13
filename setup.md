@@ -12,7 +12,7 @@ It provides a neat looking console that is in many ways (shortcuts, ...) superio
 It comes in two flavours of which i preffer the full version that comes with built in tools like git, ssh and many more.
 
 ### ssh
-The full version of cmder comes with ssh, therefore have not felt the need to install it seperately.
+The full version of cmder comes with ssh, therefore I have not felt the need to install it seperately.
 
 ## Create the virtual machine
 The VM is the core of MiniLinux as it is what really executes the linux command line applications.
@@ -24,6 +24,7 @@ Short summary:
 
 |             Variable | Value     |
 | --------------------:| --------- |
+|              VM Name | MiniLinux |
 |             Hostname | minilinux |
 |   Full name for User | MiniLinux |
 | Username for account | user      |
@@ -70,8 +71,15 @@ Screenshots of the Ubuntu 14.04 minimal installation:
 ![37](screenshots/InstallOS/37.jpg)
 ![38](screenshots/InstallOS/38.jpg)
 
+### Make sure the OS is up to date
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
 ### Setup a ssh connection
-The setup of the ssh connection can be broken down to two parts:
+The setup of the ssh connection can be broken down to three parts:
 
 1. Install openssh
 
@@ -128,20 +136,20 @@ The setup of the ssh connection can be broken down to two parts:
 
 ### Access hard drive from within the VM
 1. Create Shared Folder
-	1. Open VirtualBox Manager
-	2. rightclick MiniLinux > Settings
-	3. Shared Folders tab
-	4. Add new shared folder
-	5. Add share > Folder Path: "C:\"
-	6. Add share > Folder Name: "C_Drive"
-	7. Add share > Ok
-	8. MiniLinux Settings > Ok
+
+	![01](screenshots/ShareFolder/01.jpg)
+	![02](screenshots/ShareFolder/02.jpg)
+	![03](screenshots/ShareFolder/03.jpg)
+	![04](screenshots/ShareFolder/04.jpg)
+	![05](screenshots/ShareFolder/05.jpg)
+	![06](screenshots/ShareFolder/06.jpg)
+	
 2. Start VM
 3. Mount Shared Folder
 	1. Create folder where the shared folder should be mounted
 	
 		```
-		mkdir /c
+		sudo mkdir /c
 		```
 	2. Mount shared folder
 	
@@ -172,9 +180,6 @@ The setup of the ssh connection can be broken down to two parts:
 	4. Automatically mount the folder at startup
 	
 		add ```sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c``` to "/etc/rc.local"
-		```
-		echo "sudo mount -t vboxsf -o rw,uid=1000,gid=1000 C_DRIVE /c" >> /etc/rc.local
-		```
 	5. Restart the VM
 	6. Repeat 3.3
 
@@ -205,6 +210,21 @@ The setup of the ssh connection can be broken down to two parts:
 	```
 	ssh-copy-id -i id_rsa_minilinux.pub localhost
 	```
+	> The authenticity of host 'localhost (::1)' can't be established.
+	
+	> ECDSA key fingerprint is d2:0d:83:f4:21:95:3c:63:6f:bc:f1:5f:0e:96:c1:e8.
+	
+	> Are you sure you want to continue connecting (yes/no)? yes
+	
+	> /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+	
+	> /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+	
+	> user@localhost's password:
+
+	> Number of key(s) added: 1
+
+	> Now try logging into the machine, with:   "ssh 'localhost'" and check to make sure that only the key(s) you wanted were added.
 	
 3.  Disable GSSAPIAuthentication
 
@@ -222,6 +242,13 @@ The setup of the ssh connection can be broken down to two parts:
 	ssh user@192.168.56.1 -p 4022 -i C:\Users\MyUser\.ssh\id_rsa_minilinux
 	```
 
+### Use ```sudo``` without password prompt
+Do note that may not want to do this, as you are likely less hesitant to write ```sudo``` in front of a command before revalidating that you typed the command correctly, if you do not have to enter a password.
+Nevertheless, I consider it a good balance between having to type a password every time i want do use ```sudo``` and using the super user per default (```sudo -i```)
+
+Add ```user ALL=(ALL) NOPASSWD: ALL``` to the file opened by ```sudo visudo```.
+
 ## Use a batch script to control the VM easily
 [Download the script](linux.bat) and [the config file](config.bat) and add the folder they reside in to your windows PATH variable, in order to access it with ```linux``` anywhere.
 Instead of only downloading the scripts seperately, you can also clone the entire MiniLinux repository to get eventual updates.
+Edit the config.bat before you run linux.bat or it will not work!
