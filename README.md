@@ -12,3 +12,6 @@ MiniLinux is the combined usage of several powerful tools:
 
 ## How do I set it up
 Check out the [setup guide](setup.md)
+
+# Contribute
+If you have any ideas that can improve the MiniLinux experience, don't hesitate to send me an email to ```lammer.simon@gmail.com```.
