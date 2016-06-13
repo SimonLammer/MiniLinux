@@ -1,7 +1,7 @@
 # MiniLinux
 Use Linux console applications on a Windows computer
 
-# Website
+# [Visit the MiniLinux Website for better depiction](https://simonlammer.github.io/MiniLinux/)
 Github.com with it's markup support is nice and all, but [the github.io MiniLinux website](https://simonlammer.github.io/MiniLinux/) is much nicer.
 
 ## How it works
