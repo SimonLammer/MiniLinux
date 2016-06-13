@@ -1,6 +1,6 @@
 @echo off
 :: Variables
-call config.bat
+call minilinuxconfig.bat
 
 :: Main Program
 setlocal EnableDelayedExpansion
