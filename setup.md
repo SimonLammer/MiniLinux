@@ -137,12 +137,12 @@ The setup of the ssh connection can be broken down to two parts:
 ### Access hard drive from within the VM
 1. Create Shared Folder
 
-	![01](screenshots/Network/01.jpg)
-	![02](screenshots/Network/02.jpg)
-	![03](screenshots/Network/03.jpg)
-	![04](screenshots/Network/04.jpg)
-	![05](screenshots/Network/05.jpg)
-	![06](screenshots/Network/06.jpg)
+	![01](screenshots/ShareFolder/01.jpg)
+	![02](screenshots/ShareFolder/02.jpg)
+	![03](screenshots/ShareFolder/03.jpg)
+	![04](screenshots/ShareFolder/04.jpg)
+	![05](screenshots/ShareFolder/05.jpg)
+	![06](screenshots/ShareFolder/06.jpg)
 	
 2. Start VM
 3. Mount Shared Folder
