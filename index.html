@@ -475,16 +475,16 @@
 					<ol>
 					<li>Create Shared Folder
 
-					<ol>
-					<li>Open VirtualBox Manager</li>
-					<li>rightclick MiniLinux &gt; Settings</li>
-					<li>Shared Folders tab</li>
-					<li>Add new shared folder</li>
-					<li>Add share &gt; Folder Path: "C:\"</li>
-					<li>Add share &gt; Folder Name: "C_Drive"</li>
-					<li>Add share &gt; Ok</li>
-					<li>MiniLinux Settings &gt; Ok</li>
-					</ol></li>
+					<div id="slider3">
+						<img src="screenshots/ShareFolder/01.jpg" alt="Open Oracle VM VirtualBox Manager" />
+						<img data-src="screenshots/ShareFolder/02.jpg" alt="Rightclick the VM and choose 'Settings'" />
+						<img data-src="screenshots/ShareFolder/03.jpg" alt="Switch to the 'Shared Folders' tab" />
+						<img data-src="screenshots/ShareFolder/04.jpg" alt="Click on the icon with the + symbol (top right corner) to add a new shared folder" />
+						<img data-src="screenshots/ShareFolder/05.jpg" alt="Insert values and click 'OK'" />
+						<img data-src="screenshots/ShareFolder/06.jpg" alt="Click 'OK' to close the dialog" />
+					</div>
+
+					</li>
 					<li>Start VM</li>
 					<li><p>Mount Shared Folder</p>
 
@@ -711,6 +711,9 @@ Add <code>user ALL=(ALL) NOPASSWD: ALL</code> to the file opened by <code>sudo v
 		sliderSettings.selector = '#slider2';
 		var slider2 = new IdealImageSlider.Slider(sliderSettings);
 		slider2.addCaptions();
+		sliderSettings.selector = '#slider3';
+		var slider3 = new IdealImageSlider.Slider(sliderSettings);
+		slider3.addCaptions();
 	</script>
 
 </body>
