@@ -579,7 +579,7 @@
 <p>Do note that may not want to do this, as you are likely less hesitant to write <code>sudo</code> in front of a command before revalidating that you typed the command correctly, if you do not have to enter a password.
 Nevertheless, I consider it a good balance between having to type a password every time i want do use <code>sudo</code> and using the super user per default (<code>sudo -i</code>)
 </p><p>
-Add <code>user ALL=(ALL) NOPASSWD: ALL</code> to the file opened by <code>sudo visudo</code>.
+Write <code>user ALL=(ALL) NOPASSWD: ALL</code> in the last line to the file opened by <code>sudo visudo</code>.
 </p>
 <pre><code>sudo visudo</code></pre>
 
