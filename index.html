@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
 
@@ -455,7 +454,7 @@
 
 					<pre><code>ssh-copy-id -i id_rsa_minilinux.pub localhost</code></pre>
 
-<blockquote> <p>The authenticity of host 'localhost (::1)' can't be established.</p>  <p>ECDSA key fingerprint is d2:0d:83:f4:21:95:3c:63:6f:bc:f1:5f:0e:96:c1:e8.</p>  <p>Are you sure you want to continue connecting (yes/no)? yes</p>  <p>/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</p>  <p>/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</p>  <p>user@localhost's password:</p>  <p>Number of key(s) added: 1</p>  <p>Now try logging into the machine, with:   "ssh 'localhost'" and check to make sure that only the key(s) you wanted were added.</p> </blockquote>
+                    <blockquote> <p>The authenticity of host 'localhost (::1)' can't be established.</p>  <p>ECDSA key fingerprint is d2:0d:83:f4:21:95:3c:63:6f:bc:f1:5f:0e:96:c1:e8.</p>  <p>Are you sure you want to continue connecting (yes/no)? yes</p>  <p>/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</p>  <p>/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</p>  <p>user@localhost's password:</p>  <p>Number of key(s) added: 1</p>  <p>Now try logging into the machine, with:   "ssh 'localhost'" and check to make sure that only the key(s) you wanted were added.</p> </blockquote>
 
 					</li>
 					<li><p>Disable GSSAPIAuthentication</p>
@@ -471,6 +470,26 @@
 					<pre><code>ssh user@192.168.56.1 -p 4022 -i C:\Users\MyUser\.ssh\id_rsa_minilinux</code></pre>
 					</li>
 					</ol>
+
+                    <h3>Deny other machines access</h3>
+                    <p>
+                    Unless you deny other machines access to the VM, anyone could connect. Because I don't really appreciate anyone except myself connecting to my MiniLinux VM, I'll refuse ssh-connections that do not come from my machine.
+                    <br/>
+                    Restart the VM, before you continue with this procedure!
+                    </p>
+                    <p>
+                    The first step is to figure out the host IP:
+                    </p>
+                    <pre><code>grep ssh /var/log/auth.log -a | tail | grep Accepted</pre></code>
+                    <p>
+                    This should give you something similiar to this output (line count may vary - as long as there is at least one line):
+                    <blockquote>
+                    <p>Jul 12 07:54:25 minilinux sshd[916]: Accepted publickey for user from 10.0.2.2 port 65199 ssh2: RSA SHA256:3GycrTkwpgsGsQc3Fpt6UWqMhooEvhCthztogo/xY4g</p>
+                    <p>Jul 12 08:18:59 minilinux sshd[1037]: Accepted publickey for user from 10.0.2.2 port 49930 ssh2: RSA SHA256:3GycrTkwpgsGsQc3Fpt6UWqMhooEvhCthztogo/xY4g</p>
+                    <p>Jul 12 08:38:42 minilinux sshd[1201]: Accepted publickey for user from 10.0.2.2 port 50507 ssh2: RSA SHA256:3GycrTkwpgsGsQc3Fpt6UWqMhooEvhCthztogo/xY4g</p>
+                    </blockquote>
+                    The host IP is 10.0.2.2 in my case. If your host-IP differs, replace all occurances of 10.0.2.2 in this segment with your host-IP.
+                    </p>
 
 					<h2>Use <code>sudo</code> without password prompt</h2>
 
