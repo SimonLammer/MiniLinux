@@ -490,6 +490,11 @@
                     </blockquote>
                     The host IP is 10.0.2.2 in my case. If your host-IP differs, replace all occurances of 10.0.2.2 in this segment with your host-IP.
                     </p>
+					<p>
+					Now simply add <code>sshd: 10.0.2.2</code> to <code>/etc/hosts.allow</code> and <code>sshd: ALL</code> to <code>/etc/hosts.deny</code>.
+					</p>
+					<pre><code>echo "sshd: 10.0.2.2 # Host PC" | sudo tee -a /etc/hosts.allow</code></pre>
+					<pre><code>echo "sshd: ALL" | sudo tee -a /etc/hosts.deny</code></pre>
 
 					<h2>Use <code>sudo</code> without password prompt</h2>
 
