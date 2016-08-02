@@ -3,6 +3,8 @@ Use Linux console applications on a Windows computer
 
 # [Visit the MiniLinux Website](https://simonlammer.github.io/MiniLinux/)
 
+## [Upcoming features](https://trello.com/b/04e45Mvs/minilinux)
+
 ## How it works
 MiniLinux is the combined usage of several powerful tools:
 * [VirtualBox](https://www.virtualbox.org/)
