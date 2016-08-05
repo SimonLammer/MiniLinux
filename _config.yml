@@ -1,0 +1,21 @@
+##########################################
+#                                        #
+# This is the jekyll configuration file. #
+#                                        #
+##########################################
+
+source:      ./website
+destination: ./website/_site
+exclude:     ['README.md', './public/sass', 'config.rb']
+
+baseurl:     /MiniLinux
+
+future:      true
+lsi:         false
+highlighter: rouge
+markdown:    redcarpet
+permalink:   pretty
+
+# Used for local deployment
+port:        8080
+host:        0.0.0.0
