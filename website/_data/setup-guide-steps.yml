@@ -1,2 +1,5 @@
-- label: Install Programs
-  categories: install-programs
+- label:    Install Programs
+  category: install-programs
+
+- label:    Virtual Machine Setup
+  category: virtual-machine-setup

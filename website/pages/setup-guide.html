@@ -9,9 +9,9 @@ permalink: /setup-guide/
 	<li>
 		<h2>{{ step.label }}</h2>
 		<ol>
-		{% for post in site.categories[step.categories] %}
-			<li> 
-				<h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+		{% for post in site.categories[step.category] %}
+			<li>
+				<h3><a href="{{ site.baseurl }}/setup-guide/{{ step.category }}/#{{ post.slug }}">{{ post.title }}</a></h3>
 				<p>{{ post.excerpt }}</p>
 			</li>
 		{% endfor %}
