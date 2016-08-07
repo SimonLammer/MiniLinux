@@ -1,0 +1,9 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+---
+
+@import "background";
+
+#foo {
+	background-color: #900;
+}

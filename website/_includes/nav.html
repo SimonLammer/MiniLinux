@@ -1,0 +1,10 @@
+<nav class="{% if include.navclass %}{{include.navclass}}{% endif %}">
+	<h1><a href="{{ site.baseurl }}/">MiniLinux</a></h1>
+	<ol>
+	{% for menuitem in site.data.nav %}
+		<li>
+			<a href="{{ site.baseurl }}{{ menuitem.url }}">{{ menuitem.label }}</a>
+		</li>
+	{% endfor %}
+	</ol>
+</nav>
