@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
 		var State = History.getState();
 		$.get(State.url, function(data){	// Use AJAX to get the new content.
 			document.title = data.match(/<title>(.*?)<\/title>/)[1];
-			$('.content').html($(data).find('.content')); 	// Pull the post we want out of the .content class.
+			$('.content').html($(data).find('.content').html()); 	// Pull the post we want out of the .content class.
 															// If you change the class of the post container,
 															// you must change it here!!!
 			//_gaq.push(['_trackPageview', State.url]);	// This updates Google Analytics with a visit to the new page.

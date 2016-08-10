@@ -1,0 +1,9 @@
+a, a:hover, a:focus {
+  display: inline-block;
+  color: $color-accent;
+  border-radius: 2px;
+}
+a:hover, a:focus {
+  color: $color-black;
+  background-color: $color-accent;
+}

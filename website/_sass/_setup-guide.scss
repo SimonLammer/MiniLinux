@@ -1,0 +1,8 @@
+.content > ol {
+  padding-left: 0;
+  list-style: none;
+  > li > ol {
+    padding-left: 1.5rem;
+    list-style: none;
+  }
+}

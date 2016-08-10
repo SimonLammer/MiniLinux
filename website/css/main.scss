@@ -2,8 +2,18 @@
 # this ensures Jekyll reads the file to be transformed into CSS later
 ---
 
-@import "background";
+@import "variables";
+@import "mixins";
+@import "body";
+@import "container";
+@import "links";
+@import "nav";
+@import "setup-guide";
 
-#foo {
-	background-color: #900;
+body {
+  padding: 20px 0;
+}
+
+body > .container {
+
 }

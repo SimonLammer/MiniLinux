@@ -1,0 +1,16 @@
+.navbar-default {
+  background-color: $color-white;
+  .navbar-header, .navbar-nav > li {
+    > a {
+      color: $color-accent;
+	  font-weight: bold;
+	  text-decoration: none;
+	  border-bottom: 2px solid $color-white;
+	  @include text-outline(2px, $color-black);
+	}
+    > a:hover, > a:focus {
+      color: $color-accent;
+	  border-bottom: 2px solid $color-important;
+    }
+  }
+}
