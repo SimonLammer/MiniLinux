@@ -10,7 +10,8 @@ jQuery(document).ready(function() {
 	//	Note: External links will not be affected by this behavior.
 	$(document).delegate('a[href^="/"],a[href^="'+siteUrl+'"]', "click", function(e) {
 		e.preventDefault();
-		History.pushState({}, "", this.pathname);
+		var url = this.pathname; // + this.hash;
+		History.pushState({hash: this.hash}, "", url);
 	});
 
 	History.Adapter.bind(window, 'statechange', function(){
@@ -20,6 +21,10 @@ jQuery(document).ready(function() {
 			$('.content').html($(data).find('.content').html()); 	// Pull the post we want out of the .content class.
 															// If you change the class of the post container,
 															// you must change it here!!!
+			if (State.data.hash){
+				$(State.data.hash)[0].scrollIntoView();
+				History.replaceState({}, "", State.url + State.data.hash);
+			}
 			//_gaq.push(['_trackPageview', State.url]);	// This updates Google Analytics with a visit to the new page.
 														// If you don't use Google Analytics, you can safety comment or
 														// remove that line.
