@@ -1,8 +1,0 @@
-@mixin text-outline($radius, $color) {
-  text-shadow: 
-	 $radius $radius 0 $color,
-    -1px -1px 0 $color,
-     1px -1px 0 $color,
-    -1px  1px 0 $color,
-     1px  1px 0 $color;
-}
