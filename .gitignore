@@ -1,3 +1,4 @@
 website/_site/**
 jekyll-serve.sh
 *.swp
+.sass-cache/**

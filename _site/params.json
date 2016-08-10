@@ -1,0 +1,6 @@
+{
+  "name": "MiniLinux",
+  "tagline": "Minimal Linux OS to use Linux based console applications on a Windows system",
+  "body": "# MiniLinux\r\nMinimal Linux OS to use Linux console applications on a Windows system\r\n\r\n## How it works\r\nMiniLinux is the combined usage of several powerful tools:\r\n* [VirtualBox](https://www.virtualbox.org/)\r\n* [cmder](http://cmder.net/)\r\n* [Ubuntu minimal](https://help.ubuntu.com/community/Installation/MinimalCD) (Other linux distros probably work just as fine)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
