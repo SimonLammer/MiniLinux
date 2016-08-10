@@ -4,6 +4,8 @@
 #                                        #
 ##########################################
 
+source:      ./website
+destination: ./website/_site
 exclude:     ['README.md', './public/sass', 'config.rb']
 sass:
     style:   nested # set to nested for debugging # TODO: set to compressed
