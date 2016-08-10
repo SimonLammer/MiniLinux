@@ -1,0 +1,7 @@
+body {
+  background-color: $color-bright;
+  color: $color-black;
+  > .container {
+    background-color: $color-white;
+  }
+}
